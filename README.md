@@ -8,6 +8,11 @@ The bot for assigning tasks for users with internal points awards and verifying 
 1. Install packages: `pip install -r requirements.txt`
 1. Run `main.py`
 
+## [*OPTIONAL*] Setup AdminPanel:
+1. Create `.env` for admin-panel (based on [`./AdminPanel/inc/.env.example`](./AdminPanel/inc/.env.example) in [./AdminPanel/inc/](./AdminPanel/inc/) and fill it
+1. Run `composer install` in [./AdminPanel](./AdminPanel)
+1. Create admin-user for login to AdminPanel in `panel_accounts` DB table (passwords must be hashed by https://phppasswordhash.com/)
+
 ## Database info:
 * `users_bot` - table for every users, who interacted with bot.
 * `tasks_bot` - table with each created task for execution by users. Accessible only for bot-admins (command: /admin) or from admin panel.
@@ -39,7 +44,17 @@ The bot for assigning tasks for users with internal points awards and verifying 
 4. User goes to "My Tasks" and can complete the task by providing a link as the proof of completion
 5. Admin verifies the completion of the task and if the task is confirmed, the user receives points
 
-## Main Menu:
+## Admin-Panel functions:
+* Verify submitted tasks
+* View history of tasks completion
+* Add/Edit/Delete Tasks
+* Add/Edit/Delete Users
+* Add/Edit/Delete Token Bundles
+* View logs of bundle purchases
+- <sub>(Admin-Panel on pure PHP with Bootstrap)</sub>
+- <sub>(Admin-Panel UI has only RU localization)</sub>
+
+## Bot Main Menu:
 1. User has a "My Profile" button
    - User internal points(tokens)
    - User wallet address
@@ -54,7 +69,7 @@ The bot for assigning tasks for users with internal points awards and verifying 
    - Amount of real currency conversion to internal points (Example: "1000 Tokens for 50$")
    - *[WIP]* "Buy" button
 
-## Admin Menu:
+## Bot Admin Menu:
 1. Admin has a "Show Tasks" button
    - Task name
    - Task assigned user
