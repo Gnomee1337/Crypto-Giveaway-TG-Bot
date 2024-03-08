@@ -13,6 +13,22 @@ The bot for assigning tasks for users with internal points awards and verifying 
 1. Run `composer install` in [./AdminPanel](./AdminPanel)
 1. Create admin-user for login to AdminPanel in `panel_accounts` DB table (passwords must be hashed by https://phppasswordhash.com/)
 
+## Bot screenshots:
+<img src="https://i.imgur.com/dRzinap.jpeg" width="800" height="500"/>
+
+<img src="https://i.imgur.com/aaLfMcx.jpeg" width="800" height="800"/>
+
+<img src="https://i.imgur.com/mzA1zfP.jpeg" width="800" height="800"/>
+
+Admin Menu in Telegram:
+
+<img src="https://i.imgur.com/6X8yunY.jpeg" width="800" height="400"/>
+
+Admin Panel (php+bootstrap):
+
+<img src="https://i.imgur.com/IIaQhL5.jpeg" width="800" height="400"/>
+
+
 ## Database info:
 * `users_bot` - table for every users, who interacted with bot.
 * `tasks_bot` - table with each created task for execution by users. Accessible only for bot-admins (command: /admin) or from admin panel.
