@@ -78,9 +78,14 @@ The bot for assigning tasks for users with internal points awards and verifying 
    - Task assigned user
    - Task user answer (proof)
    - Task status (Not Completed/Verify/Completed)
-1. Admin has a "To Verify" button
+2. Admin has a "To Verify" button
    - Task name
    - Task assigned user
    - Task user answer (proof)
    - Task status (Not Completed/Verify/Completed)
-   - "Approved" and "Cancel" button
+   - "Approve" and "Cancel" button
+3. Admin has a "Create Task" button
+   - Input Task name (string)
+   - How many times to complete the task (int)
+   - Task reward (int)
+4. Admin has a "Return to Main Menu" button.
