@@ -57,7 +57,7 @@ The bot for assigning tasks for users with internal points awards and verifying 
 ### Done(Finished) Stage
 17. User proceed to the main menu of the bot
 
-## Main Menu Algorithm:
+## Main Menu:
 1. User has a "My Profile" button
    - User internal points(tokens)
    - User wallet address
@@ -71,3 +71,16 @@ The bot for assigning tasks for users with internal points awards and verifying 
    - Bundle name
    - Amount of real currency conversion to internal points (Example: "1000 Tokens for 50$")
    - *[WIP]* "Buy" button
+
+## Admin Menu:
+1. Admin has a "Show Tanks" button
+   - Task name
+   - Task assigned user
+   - Task user answer (proof)
+   - Task status (Not Completed/Verify/Completed)
+1. Admin has a "Verify" button
+   - Task name
+   - Task assigned user
+   - Task user answer (proof)
+   - Task status (Not Completed/Verify/Completed)
+       - "Approved" and "Cancel" button for verify tasks
