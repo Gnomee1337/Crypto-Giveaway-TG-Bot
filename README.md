@@ -89,3 +89,21 @@ The bot for assigning tasks for users with internal points awards and verifying 
 16. User is asked to input address of his crypto wallet for withdrawal of funds
 ### Done(Finished) Stage
 17. User proceed to the main menu of the bot
+
+# WIP Features:
+- [ ] Telegram payment
+    - [buy_tokens_callback_run](./handlers/user.py#L100)
+    - [checkout](./handlers/user.py#L123)
+    - [got_payment](./handlers/user.py#L152)
+- [ ] Smart contracts payment
+    - [token_transaction](./contracts/token_transactions.py)
+- [x] Smart contracts transactions from Owner-Wallet to Receiver-Wallet on Testnet
+    - [token_transaction](./handlers/user.py#L162)
+
+## [*WIP*] Setup Smart Contracts:
+1. Create ERC-20 Token on Testnet
+1. Download and place ABI file in .json format to [./contracts](./contracts/) 
+1. Set path to your ABI file in: [./contracts/token_transactions.py](./contracts/token_transactions.py#L27)
+2. In .env file:
+   - Set `PRIVATE_KEY_COIN` - your private key for created Token
+   - Set `COIN_API` - your API for ERC-20 Testnet
