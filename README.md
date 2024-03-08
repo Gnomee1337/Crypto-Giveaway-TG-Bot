@@ -73,14 +73,14 @@ The bot for assigning tasks for users with internal points awards and verifying 
    - *[WIP]* "Buy" button
 
 ## Admin Menu:
-1. Admin has a "Show Tanks" button
+1. Admin has a "Show Tasks" button
    - Task name
    - Task assigned user
    - Task user answer (proof)
    - Task status (Not Completed/Verify/Completed)
-1. Admin has a "Verify" button
+1. Admin has a "To Verify" button
    - Task name
    - Task assigned user
    - Task user answer (proof)
    - Task status (Not Completed/Verify/Completed)
-       - "Approved" and "Cancel" button for verify tasks
+   - "Approved" and "Cancel" button
