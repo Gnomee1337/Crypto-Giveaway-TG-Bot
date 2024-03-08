@@ -1,5 +1,5 @@
 # Crypto-Giveaway-TG-Bot
-The bot for assigning tasks and verifying their completion by users with internal points awards
+The bot for assigning tasks for users with internal points awards and verifying their completion by admins
 
 ## Setup Bot:
 1. Create DB
@@ -32,22 +32,42 @@ The bot for assigning tasks and verifying their completion by users with interna
 4. User goes to "My Tasks" and can complete the task by providing a link as the proof of completion
 5. Admin verifies the completion of the task and if the task is confirmed, the user receives points
 
-## Detailed Registration Algorithm: 
+## Detailed Registration(Guide) Algorithm: 
 ### Captcha Stage
 1. User initiates the first communication with bot by command: /start.
-1. Bot recognizes in what language to communicate with the user [RU/ENG].
-3. Bot greets the user and sends a "Join" button which will start the registration stage.
-4. User clicks "Join" button.
+1. Bot recognizes in what language to communicate with the user [`RU/ENG`].
+3. Bot greets the user and sends a "`Join`" button which will start the registration stage.
+4. User clicks "`Join`" button.
 5. Bot sends the user a generated captcha to verify the user's humanity.
 6. User must enter the correct captcha otherwise the bot will generate a new one and wait for the user to respond.
 7. User enters the correct captcha
 ### Balance Stage
 8. Bot sends a balance message
-9. User clicks the "Balance" button
+9. User clicks the "`Balance`" button
 ### Reaction Stage
 10. Bot sends a link to the channel user need to subscribe to
-11. User clicks on the "Subscribed" button
+11. User clicks on the "`Subscribed`" button
 12. Bot verifies through the admin access in this channel if the user is in this telegram channel
-### Referral(Invite_Friend) Stage
-13. Bot sends the user a link with their referral link (?start=referral_id)
-14. User has to click the "Invited a friend" button himself, then the user will run the [bot time based algorithm](./handlers/user_questions.py?plain=1#L110) to verify the friend invitation in the bot
+### Invite_Friend(Referral) Stage
+13. Bot sends the user a link with their referral link (`?start=referral_id`)
+14. User has to click the "Invited a friend" button himself, then the user will run the [bot remind scheduler](./handlers/guide.py?plain=1#L407) to verify the friend invitation in the bot
+15. If user receives a negative check 3 times, the user will be skipped to the next registration steps
+### Wallet Stage
+16. User is asked to input address of his crypto wallet for withdrawal of funds
+### Done(Finished) Stage
+17. User proceed to the main menu of the bot
+
+## Main Menu Algorithm:
+1. User has a "My Profile" button
+   - User internal points(tokens)
+   - User wallet address
+   - User referral link
+   - User number of invited referrals
+2. User has a "Active Tasks" button
+   - Task name
+   - Task reward amount
+   - "Submit" button
+3. User has a "Buy bundle" button
+   - Bundle name
+   - Amount of real currency conversion to internal points (Example: "1000 Tokens for 50$")
+   - *[WIP]* "Buy" button
