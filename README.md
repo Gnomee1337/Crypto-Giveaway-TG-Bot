@@ -16,6 +16,13 @@ The bot for assigning tasks for users with internal points awards and verifying 
 * `payment_logs` - table with logs of bundle purchases that can be seen and used by administrators who have access to the admin panel.
 * `panel_accounts` - table for creating an admin panel user (passwords must be hashed by https://phppasswordhash.com/).
 
+## Project structure:
+* `contracts` - ERC-20 transactions for bot payments
+* `database` - bot database requests (without ORM)
+* `handlers` - Guide(Registration)/User/Admin functions
+* `keyboards` - inline bot keyboards
+* `translations` - RU/ENG localizations
+
 ## General Bot Algorithm:
 1. The user goes through 5 steps of registration:
    - Captcha (Select Language -> "Join" button -> Captcha)
