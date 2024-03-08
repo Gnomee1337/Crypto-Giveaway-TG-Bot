@@ -43,8 +43,11 @@ The bot for assigning tasks and verifying their completion by users with interna
 7. User enters the correct captcha
 ### Balance Stage
 8. Bot sends a balance message
-9. User presses the "Balance" button
+9. User clicks the "Balance" button
 ### Reaction Stage
 10. Bot sends a link to the channel user need to subscribe to
 11. User clicks on the "Subscribed" button
 12. Bot verifies through the admin access in this channel if the user is in this telegram channel
+### Referral(Invite_Friend) Stage
+13. Bot sends the user a link with their referral link (?start=referral_id)
+14. User has to click the "Invited a friend" button himself, then the user will run the [bot time based algorithm](./handlers/user_questions.py?plain=1#L110) to verify the friend invitation in the bot
