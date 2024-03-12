@@ -1,7 +1,13 @@
 # Crypto-Giveaway-TG-Bot
 The bot for assigning tasks for users with internal points awards and verifying their completion by admins
 
-## Setup Bot:
+## Setup Docker:
+1. Create `.env` file for bot (based on [./.env.example](./.env.example)) and fill it
+2. Create `.env` file for admin-panel (based on [`./AdminPanel/inc/.env.example`](./AdminPanel/inc/.env.example)) in [./AdminPanel/inc/](./AdminPanel/inc/) and fill it
+1. Comment/Uncomment DB data in [docker-compose (Line 14 - Line 18)](./docker-compose.yaml#L16)
+2. Run `docker-compose up --build`
+
+## OR Manually Setup Bot:
 1. Create DB
     - Import sql template [./database/bot-database.sql](./database/bot-database.sql)
 1. Create `.env` file (based on `.env.example`) and fill it
@@ -9,7 +15,7 @@ The bot for assigning tasks for users with internal points awards and verifying 
 1. Run `main.py`
 
 ## [*OPTIONAL*] Setup AdminPanel:
-1. Create `.env` for admin-panel (based on [`./AdminPanel/inc/.env.example`](./AdminPanel/inc/.env.example) in [./AdminPanel/inc/](./AdminPanel/inc/) and fill it
+1. Create `.env` for admin-panel (based on [`./AdminPanel/inc/.env.example`](./AdminPanel/inc/.env.example)) in [./AdminPanel/inc/](./AdminPanel/inc/) and fill it
 1. Run `composer install` in [./AdminPanel](./AdminPanel)
 1. Create admin-user for login to AdminPanel in `panel_accounts` DB table (passwords must be hashed by https://phppasswordhash.com/)
 
