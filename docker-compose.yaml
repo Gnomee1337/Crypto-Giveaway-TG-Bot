@@ -1,0 +1,65 @@
+version: "3"
+services:
+  db:
+    container_name: bot_db
+    image: mysql
+    volumes:
+      - db-data:/var/lib/mysql
+      - ./database/bot-database.sql:/docker-entrypoint-initdb.d/bot-database.sql
+    ports:
+      - "32001:3306"
+    env_file:
+      - ./.env
+    environment:
+      MYSQL_DATABASE: "${DB_DATABASE}"
+      #MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      #MYSQL_USER: ${DB_USER}
+      #MYSQL_PASSWORD: ${DB_PASSWORD}
+    healthcheck:
+      test: [ "CMD", "mysql", "-h", "localhost", "-u", "root", "-p${DB_PASSWORD}", "-e", "SELECT 1" ]
+      timeout: 20s
+      retries: 10
+  admin:
+    container_name: bot_db_phpmyadmin
+    image: phpmyadmin
+    environment:
+      - PMA_ARBITRARY=1
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+  app:
+    container_name: bot_app
+    links:
+      - db
+    depends_on:
+      - db
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    command: sh -c "python main.py"
+    env_file:
+      - ./.env
+    ports:
+      - "5001:5000"
+#  composer_installation:
+#    container_name: composer_installation
+#    image: composer
+#    volumes:
+#      - ./:/app
+#    command: composer install --ignore-platform-reqs
+  admin-panel:
+    container_name: bot_admin_panel
+    image: php:8.0-apache
+    links:
+      - db
+    depends_on:
+      - db
+    build:
+      context: ./AdminPanel
+      dockerfile: ./DockerFile
+    ports:
+      - "45000:80"
+volumes:
+  db-data:
