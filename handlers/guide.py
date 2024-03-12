@@ -216,7 +216,7 @@ async def generate_captcha(text):
     captcha_image = Image.new('RGB', (img_width, img_height),
                               color=(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)))
     captcha_draw = ImageDraw.Draw(captcha_image)
-    captcha_font = ImageFont.truetype('arial.ttf', size=random.randint(30, 60))
+    captcha_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf", size=random.randint(30, 60))
     captcha_draw.polygon(
         [(random.randint(0, 255), random.randint(0, 255)), (random.randint(0, 255), random.randint(0, 255)),
          (random.randint(0, 255), random.randint(0, 255)), (random.randint(0, 255), random.randint(0, 255))],

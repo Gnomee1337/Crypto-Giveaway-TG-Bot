@@ -1,0 +1,18 @@
+FROM php:8.0-apache
+
+# Set the working directory
+WORKDIR /var/www/html/admin-panel/
+
+ENV COMPOSER_ALLOW_SUPERUSER 1
+
+COPY --from=composer /usr/bin/composer /usr/bin/composer
+
+# Copy the admin-panel project code into the container
+# COPY . /app/admin-panel/
+COPY . /var/www/html/
+
+# Install dependencies
+RUN composer install
+RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
+
+RUN php /var/www/html/index.php

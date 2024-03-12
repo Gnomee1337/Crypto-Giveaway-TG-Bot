@@ -6,7 +6,7 @@ from mysql.connector import errorcode
 # import keyboards.markups as nav
 # import re
 
-from config import DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE
+from config import DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE, DB_PORT
 
 
 # TODO: USE ORM dumbass -_-
@@ -16,6 +16,7 @@ class Database:
         self.user = DB_USER
         self.password = DB_PASSWORD
         self.database = DB_DATABASE
+        self.port = DB_PORT
 
         try:
             logging.info("DB starting Test-Connection")
@@ -24,6 +25,7 @@ class Database:
                 user=self.user,
                 password=self.password,
                 database=self.database,
+                port=self.port
             )
         except mysql.connector.Error as err:
             if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
